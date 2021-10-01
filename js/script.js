@@ -9,6 +9,8 @@ snake[0] = {
 
 let direction = "right";
 
+let x = 0;
+
 let comida = {
     x: Math.floor(Math.random() * 15 + 1) * box,
     y: Math.floor(Math.random() * 15 + 1) * box,
@@ -49,7 +51,7 @@ function iniciarJogo(){
     for(i = 1; i < snake.length; i++){
         if (snake[0].x == snake[i].x && snake[0].y == snake[i].y){
             clearInterval(jogo);
-            alert('Game Over');
+            alert('Game Over ' + x + " pontos");
         }
     }
 
@@ -73,6 +75,7 @@ function iniciarJogo(){
     else{
         comida.x = Math.floor(Math.random() * 15 + 1) * box;
         comida.y = Math.floor(Math.random() * 15 + 1) * box;
+        x++;
     }
     
 
@@ -84,4 +87,4 @@ function iniciarJogo(){
     snake.unshift(newHead);
 }
 
-let jogo = setInterval(iniciarJogo, 100);
+let jogo = setInterval(iniciarJogo, 333);
